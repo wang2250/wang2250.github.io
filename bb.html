@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+      .aa{
+        margin: 0 auto;
+      }
+      .qq{
+        text-align: center;
+        color: pink;
+        font-size: 20px;
+        margin-top: 30px;
+      }
+    </style>
+</head>
+<body>
+    <div id="game" class="aa">
+
+    </div>
+   <div class="qq">
+      三哥拼图1.0
+   </div>
+    <script>
+
+  // 全局配置
+    var config = {
+        width:300,
+        height:300,
+        row:3,
+        col:3,
+       
+        
+        gameDome:document.getElementById('game')
+    }
+    config.blockWidth = config.width/config.row;
+    config.blockHeight = config.height/config.col;
+   
+
+   var aa;
+    /*  
+      生成一个小方块
+    */
+
+    function  creatBlockDome(x,y,appToPage,Cx,Cy){
+       
+     var dom = document.createElement('div');
+       dom.style.width = config.blockWidth + 'px';
+       dom.style.height = config.blockHeight + 'px';
+       dom.style.border = '2px solid pink';
+       dom.style.background = 'url("1.JPG")';
+       dom.style.boxSizing = 'border-box';
+       dom.style.position = 'absolute';
+       dom.style.left = x + 'px';
+       dom. style.top = y + 'px';
+       dom.cX = Cx;
+       dom.cY = Cy;
+       dom.style.backgroundPositionX = -Cx + 'px';
+       dom.style.backgroundPositionY = -Cy + 'px';
+       dom.style.cursor = "pointer";
+       dom.style.transition = "all  .5s"
+      
+
+     
+       dom.onclick = function(){
+          var xdis = Math.abs(parseFloat(dom.style.left)-parseFloat(aa.style.left))
+          xdis = parseInt(xdis);
+          var ydis = Math.abs(parseFloat(dom.style.top)-parseFloat(aa.style.top))
+          ydis = parseInt(ydis);
+          if(xdis+ydis !== parseInt(config.blockHeight)&&xdis+ydis !== parseInt(config.blockWidth)){
+            return;
+          }
+         var x = dom.style.left ;
+         var y = dom.style.top ;
+         dom.style.left = aa.style.left;
+         dom.style.top = aa.style.top ;
+         aa.style.left = x;
+         aa.style.top = y;
+ 
+        if(isWin()){
+          setTimeout(function(){
+            alert("徐三真香");
+          },350)
+        }
+      }
+
+      if(appToPage){
+        config.gameDome.appendChild(dom);
+      }else{
+        aa = dom;
+      }
+       
+     
+    }
+
+
+   function isWin(){
+
+   for(var i = 0;i<config.gameDome.children.length;i++){
+    var dom = config.gameDome.children[i];
+    if(dom.cX !== parseInt(dom.style.left) || dom.cY !== parseInt(dom.style.top) ){
+      return false;
+    }
+  }
+      return true;
+   }
+
+/*
+生成坐标
+*/
+
+function getPosition(){
+   var arr  =  [];
+   for(var i = 0; i<config.row; i++){
+     for(var j = 0; j<config.col; j++){
+
+       arr.push({
+         x: j*config.blockWidth ,
+         y: i*config.blockHeight 
+       })
+     }
+   }
+  return arr;
+}
+
+
+
+
+
+
+/*
+洗牌
+*/
+function shuffle(arr){
+    
+    arr.sort(function(a,b){
+      return Math.random() - 0.5;
+    })
+
+return arr;
+
+
+}
+
+
+   /*
+    生成游戏区域
+   */
+  function setGameArea(){
+     //初始化游戏跟元素
+     config.gameDome.style.width = config.width + 'px';
+     config.gameDome.style.height = config.height + 'px';
+     config.gameDome.style.border = "2px solid pink";
+     config.gameDome.style.position = 'relative';
+     //生成小方块  gamedome 子元素
+     var p = getPosition(); //得到坐标数组
+     var pp = shuffle(p);//打乱数组
+    var ppp = getPosition();
+    
+    for(var i = 0 ; i < config.row*config.col; i++){
+      if(i < config.row*config.col-1){
+        creatBlockDome(pp[i].x,pp[i].y,true,ppp[i].x,ppp[i].y);
+      }else{
+        creatBlockDome(pp[i].x,pp[i].y,false,ppp[i].x,ppp[i].y);
+      }
+    }
+
+  }
+  setGameArea();
+    </script>
+</body>
+</html>
