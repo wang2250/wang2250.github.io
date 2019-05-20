@@ -7,6 +7,91 @@
     <title>Document</title>
     <style>
 
+       *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 130px;
+            left: 50%;
+            margin-left: -50px;
+            transform-style: preserve-3d;
+            transform: rotateX(-10deg) rotateY(0deg);
+            list-style: none;
+            animation: ww 7s linear 0s  infinite normal;
+        }
+        @keyframes ww {
+            from{
+                transform: rotateX(-10deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+        ul li{
+            height: 100px;
+            width: 100px;
+            background-image: url("1.JPG");
+            background-size: 100px 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 1s;
+        }
+        ul:hover{
+            animation-play-state: paused;
+        }
+        ul li:nth-child(1){
+
+            transform: rotateY(60deg) translateZ(100px);
+        }
+
+        ul li:nth-child(2){
+
+            transform: rotateY(120deg) translateZ(100px);
+        }
+        ul li:nth-child(3){
+
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        ul li:nth-child(4){
+
+            transform: rotateY(240deg) translateZ(100px);
+        }
+        ul li:nth-child(5){
+
+            transform: rotateY(300deg) translateZ(100px);
+        }
+        ul li:nth-child(6){
+
+            transform: rotateY(360deg) translateZ(100px);
+        }
+        ul li:nth-child(1):hover{
+            transform: rotateY(60deg) translateZ(100px) scale(1.2,1.2);
+        }
+        ul li:nth-child(2):hover{
+
+            transform: rotateY(120deg) translateZ(100px) scale(1.2,1.2);
+        }
+        ul li:nth-child(3):hover{
+
+            transform: rotateY(180deg) translateZ(100px) scale(1.2,1.2);
+        }
+        ul li:nth-child(4):hover{
+
+            transform: rotateY(240deg) translateZ(100px) scale(1.2,1.2);
+        }
+        ul li:nth-child(5):hover{
+
+            transform: rotateY(300deg) translateZ(100px) scale(1.2,1.2);
+        }
+        ul li:nth-child(6):hover{
+
+            transform: rotateY(360deg) translateZ(100px) scale(1.2,1.2);
+        }
       .aa{
         margin: 0 auto;
       }
@@ -14,31 +99,107 @@
         text-align: center;
         color: pink;
         font-size: 20px;
-        margin-top: 30px;
+        margin-top: 50px;
+      }
+      .top {
+          width: 300px;
+          height: 30px;
+       
+          margin: 0 auto;
+          border: 1px solid green;
+          text-align: center;
+          line-height: 30px;
+      }
+      #topl{
+        width: 300px;
+          height: 30px;
+          border: 1px solid khaki;
+          margin: 0 auto;
+          line-height: 30px;
+          overflow: hidden;
+          color: aqua;
+      }
+      #topl span{
+        margin-left: 320px;
+        line-height: 30px;
+      }
+      #topll{
+        width: 300px;
+          height: 30px;
+          border: 1px solid khaki;
+          margin: 0 auto;
+          overflow: hidden;
+          color: brown;
+      }
+      #topll span{
+        margin-left: 340px;
+        line-height: 30px;
+      }
+      .butt{
+    position: absolute;
+    bottom: 40px;
+    left: 120px;
+     
       }
     </style>
 </head>
 <body>
+  <div id='topl'>
+    <span id="ss1">澳门巴黎人祝三哥日日新郎  ～～～～～</span>
+
+  </div>
+  <div id = 'topll'>
+      <span id="ss2">巴黎皇冠赌场祝是三哥越来越 帅  帅 帅</span>
+  </div>
+    <div class="top">
+      请输入行数<input type="text" value="" >
+      <button>生成</button>
+    </div>
     <div id="game" class="aa">
 
     </div>
    <div class="qq">
-      三哥拼图1.0
+      三哥拼图2.0
    </div>
+   <div class="butt">PS:未经允许不准盗图</div>
     <script>
 
+    var sss1 = document.getElementById('ss1');
+    var sss2 = document.getElementById('ss2');
+    
+    setInterval(function(){
+        sss1.style.marginLeft = parseInt(window.getComputedStyle(sss1,null).marginLeft) + -10 +'px';
+    },250)
+
+    setInterval(function(){
+        sss2.style.marginLeft = parseInt(window.getComputedStyle(sss2,null).marginLeft) + -10 +'px';
+    },250)
+
+   
+
+
+   var inputK = document.getElementsByTagName('input')[0];
+   var inputS = document.getElementsByTagName('button')[0];
   // 全局配置
     var config = {
         width:300,
         height:300,
-        row:3,
-        col:3,
-       
-        
+        row: 4,
+        col: 4,
         gameDome:document.getElementById('game')
     }
+   
+   inputS.onclick = function(){
+      config.row = parseInt(inputK.value);
+      config.col = parseInt(inputK.value); 
+      config.blockWidth = config.width/config.row;
+      config.blockHeight = config.height/config.col;
+      setGameArea();
+   }
+    
     config.blockWidth = config.width/config.row;
     config.blockHeight = config.height/config.col;
+     
    
 
    var aa;
@@ -83,7 +244,7 @@
  
         if(isWin()){
           setTimeout(function(){
-            alert("徐三真香");
+            alert("真香鸭！");
           },350)
         }
       }
@@ -172,5 +333,15 @@ return arr;
   }
   setGameArea();
     </script>
+
+
+<ul>
+    <li ></li>
+    <li ></li>
+    <li ></li>
+    <li ></li>
+    <li ></li>
+    <li ></li>
+</ul>
 </body>
 </html>
