@@ -69,7 +69,7 @@
 
   //红球拖拽函数
   function moveBlock(elem){
-    elem.onmousedown = function(e){
+    elem.ontouchstart = function(e){
         e = e ||  window.event;
         var on_x = e.pageX;
         var on_y = e.pageY;
@@ -79,7 +79,7 @@
          },50000);
   //点击拖拽红球便开始生成绿球
         
-  document.onmousemove = function(e){
+  document.ontouchmove = function(e){
       var cha_x = e.pageX - on_x;
       var cha_y = e.pageY - on_y;
 
@@ -95,7 +95,7 @@
 
 }
 }
- elem.onmouseup = function(){
+ elem.ontouchend = function(){
     
    document.onmousemove = null;
 }
