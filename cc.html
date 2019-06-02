@@ -8,7 +8,7 @@
     <style> 
     body{
         background: pink;
-        position:absolute;
+        position:fixed;
         left:0;
         top: 0 ;
     }
@@ -70,11 +70,7 @@
   
   var timer = null;
 
-  //阻止拖拽移动
-  addEventListener("touchmove", function (event) {
-   //code........
-  event.preventDefault();	
-   }, false);
+  
   //红球拖拽函数
   function moveBlock(elem){
     elem.ontouchstart = function(e){
