@@ -11,87 +11,9 @@
             margin: 0;
             padding: 0;
         }
-        ul{
-            width: 100px;
-            height: 100px;
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            margin-left: -50px;
-            transform-style: preserve-3d;
-            transform: rotateX(-10deg) rotateY(0deg);
-            list-style: none;
-            animation: ww 7s linear 0s  infinite normal;
-        }
-        @keyframes ww {
-            from{
-                transform: rotateX(-10deg) rotateY(0deg);
-            }
-            to{
-                transform: rotateX(-10deg) rotateY(360deg);
-            }
-        }
-        ul li{
-            height: 100px;
-            width: 100px;
-            background-image: url("1.JPG");
-            background-size: 100px 100px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: all 1s;
-        }
-        ul:hover{
-            animation-play-state: paused;
-        }
-        ul li:nth-child(1){
-
-            transform: rotateY(60deg) translateZ(100px);
-        }
-
-        ul li:nth-child(2){
-
-            transform: rotateY(120deg) translateZ(100px);
-        }
-        ul li:nth-child(3){
-
-            transform: rotateY(180deg) translateZ(100px);
-        }
-        ul li:nth-child(4){
-
-            transform: rotateY(240deg) translateZ(100px);
-        }
-        ul li:nth-child(5){
-
-            transform: rotateY(300deg) translateZ(100px);
-        }
-        ul li:nth-child(6){
-
-            transform: rotateY(360deg) translateZ(100px);
-        }
-        ul li:nth-child(1):hover{
-            transform: rotateY(60deg) translateZ(100px) scale(1.2,1.2);
-        }
-        ul li:nth-child(2):hover{
-
-            transform: rotateY(120deg) translateZ(100px) scale(1.2,1.2);
-        }
-        ul li:nth-child(3):hover{
-
-            transform: rotateY(180deg) translateZ(100px) scale(1.2,1.2);
-        }
-        ul li:nth-child(4):hover{
-
-            transform: rotateY(240deg) translateZ(100px) scale(1.2,1.2);
-        }
-        ul li:nth-child(5):hover{
-
-            transform: rotateY(300deg) translateZ(100px) scale(1.2,1.2);
-        }
-        ul li:nth-child(6):hover{
-
-            transform: rotateY(360deg) translateZ(100px) scale(1.2,1.2);
-        }
+        
+        
+        
       .aa{
         margin: 0 auto;
       }
@@ -146,11 +68,11 @@
 </head>
 <body>
   <div id='topl'>
-    <span id="ss1">澳门巴黎人祝三哥日日新郎  ～～～～～</span>
+    <span id="ss1">  ～～～～～</span>
 
   </div>
   <div id = 'topll'>
-      <span id="ss2">巴黎皇冠赌场祝是三哥越来越 帅  帅 帅</span>
+      <span id="ss2">·······</span>
   </div>
     <div class="top">
       请输入行数<input type="text" value="" >
@@ -160,23 +82,40 @@
 
     </div>
    <div class="qq">
-      三哥拼图2.0
+      大包拼图1.0
    </div>
    <div class="butt">PS:未经允许不准盗图</div>
     <script>
 
     var sss1 = document.getElementById('ss1');
     var sss2 = document.getElementById('ss2');
+    var t1 = null , t2 = null;
     
-    setInterval(function(){
+      function s1(){
+        t1 = setInterval(function(){
         sss1.style.marginLeft = parseInt(window.getComputedStyle(sss1,null).marginLeft) + -10 +'px';
+        if(parseInt(window.getComputedStyle(sss1,null).marginLeft) < -80){
+          clearInterval(t1);
+          sss1.style.marginLeft = 340 + 'px';
+          console.log(sss1.style.marginLeft);
+          s1();
+        }
     },250)
-
-    setInterval(function(){
+      }
+  s1();
+    function s2(){
+      t2 = setInterval(function(){
         sss2.style.marginLeft = parseInt(window.getComputedStyle(sss2,null).marginLeft) + -10 +'px';
+        if(parseInt(window.getComputedStyle(sss2,null).marginLeft) < -80){
+          clearInterval(t2);
+          sss2.style.marginLeft = 340 + 'px';
+          console.log(sss2.style.marginLeft);
+          s2();
+        }
     },250)
+    }
 
-   
+   s2();
 
 
    var inputK = document.getElementsByTagName('input')[0];
@@ -214,7 +153,7 @@
        dom.style.width = config.blockWidth + 'px';
        dom.style.height = config.blockHeight + 'px';
        dom.style.border = '2px solid pink';
-       dom.style.background = 'url("1.JPG")';
+       dom.style.background = 'url("db.JPG")';
        dom.style.boxSizing = 'border-box';
        dom.style.position = 'absolute';
        dom.style.left = x + 'px';
