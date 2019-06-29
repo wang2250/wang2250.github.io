@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="cache-control" content="no-siteapp">
+    <title>影视天堂-在线高清电影,付费电影,免费电影,电视剧,电影,在线观看,VIP高清电影直播,在线免费高清电影！-</title>
+    <meta name="keywords" content="影视天堂,电影,视频大全,在线高清电影,付费电影,免费电影,电视剧,电影,在线观看,VIP高清电影直播,vip,免费,解析">
+    <meta name="description" content="影视天堂-在线高清电影,付费电影,免费电影,电视剧,电影,在线观看,VIP高清电影直播,在线免费高清电影！--全网vip免费看">
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+    <link href="swiper.min.css" rel="stylesheet" type="text/css">
+    <link href="iconfont.css" rel="stylesheet" type="text/css"/>
+    <link href="iconfont2.css" rel="stylesheet" type="text/css"/>
+    <link href="whitecolor.css" rel="stylesheet" type="text/css"/>
+    <link href="style.min.css" rel="stylesheet" type="text/css"/>
+    <script type='text/javascript' src="swiper.min.js"></script>
+    <script type='text/javascript' src="system.js"></script>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript" src="su.js"></script>
+    <script type="text/javascript" src="lazyload.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/public/static/wapian/js/html5.js"></script><![endif]-->
+             <style>
+        #ys {
+            background: deepskyblue;
+            color: black;
+        }
+        .jkbtn{
+            background: deepskyblue;
+            color: black;
+        }
+    </style>
+</head>
+<body class="">
+<div class="hy-head-menu">
+    <div class="container">
+        <div class="row">
+            <div class="item">
+                <div class="logo">
+                    <a class="hidden-sm hidden-xs" href="/"><img src="/public/static/wapian/images/logo.png" height="50px" width="150px"/></a>
+                </div>
+                <div class="search  hidden-sm">
+                    <div id="ff-search" role="search">
+                        <input class="form-control" placeholder="输入影片关键词..." type="text" id="ff-wd" name="wd" required="">
+                        <input type="submit" class="hide"><a href="javascript:" class="btns" title="搜索" id="sousuo"><i class="icon iconfont icon-search"></i></a>
+                    </div>
+                </div>
+                <ul class="menulist hidden-xs">
+                                                             <li id="nav-index"><a href="/tvlist/all/1.html">电视剧</a></li>
+                                         <li id="nav-index"><a href="/movielist/all/1.html">热播电影</a></li>
+                                         <li id="nav-index"><a href="/zylist/all/1.html">综艺</a></li>
+                                         <li id="nav-index"><a href="/dmlist/all/1.html">动漫</a></li>
+                                         <li id="nav-index"><a href="/zhibo.html">直播</a></li>
+                                                             <li id="nav-down"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="hy-player clearfix">
+                <div class="item">
+                    <div class="col-md-9 col-sm-12 padding-0">
+                        <div class="info embed-responsive embed-responsive-4by3 bofangdiv" id="cms_player">
+                            <img id="addid" src="" style="display: none;width:100%;border: 0px solid #FF6651">
+                            <iframe id="video" src="sy.mp4" allowfullscreen="true" allowtransparency="true" style="width:100%;border:none"></iframe>
+                            <a style="display:none" id="videourlgo" href=""></a>
+
+
+                        </div>
+                        <div class="footer clearfix">
+                            <ul class="cleafix hidden-sm hidden-xs">
+                                <li>
+                                    <a class="btn btn-sm btn-default" id="btn-pre">
+                                        <i class="icon iconfont icon-rewind1"></i> 上一集
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="btn btn-sm btn-default" id="btn-next">下一集
+                                        <i class="icon iconfont icon-fastforward"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <span class="text-muted" id="xuji" >正在为您播放-戏命师之阴阳师<span class="js"></span></span>
+
+                        </div>
+                      <p style="text-align:center;color: #fff;font-size: 10px;background: #DF3D5F;padding:11px 8px;border-radius: 2px;">
+						观看小提示：若等待15秒以上还未播放，请手动切换其他线路或播放源，服务器加载需要时间，请耐心等待，高潮总在缓冲后！</p>
+                    </div>
+                    <div class="col-md-3 col-sm-12 padding-0">
+                        <div class="sidebar">
+                            <div class="hy-play-list play">
+                                <div class="item tyui" id="dianshijuid">
+                                    <div class="panel clearfix">
+                                                                               <a class="option collapsed" data-toggle="collapse" data-parent="#playlist"
+                                           href="#playlist0">M3U8播放源<span class="text-muted pull-right"><i
+                                                        class="icon iconfont icon-right"></i></span></a>
+                                        <div id="playlist0" class="playlist collapse in">
+                                            <ul class="playlistlink-1 list-15256 clearfix">
+                                                                                                    <li>
+                                                        <a href="javascript:void(0)" target="_self" id="bofang"  class="am-btn am-btn-default lipbtn" style="" data-href='http://t.dtjos.com/m3u8.php?url=http://bili.meijuzuida.com/20190519/14838_f3211676/index.m3u8' onclick="bofang(this)">超清HD</a>
+                                                    </li>
+                                                                                            </ul>
+
+                                        </div>
+                                                                               <a class="option collapsed" data-toggle="collapse" data-parent="#playlist"
+                                           href="#playlist1">MP4播放源<span class="text-muted pull-right"><i
+                                                        class="icon iconfont icon-right"></i></span></a>
+                                        <div id="playlist1" class="playlist collapse ">
+                                            <ul class="playlistlink-1 list-15256 clearfix">
+                                                                                                    <li>
+                                                        <a href="javascript:void(0)" target="_self" id="bofang"  class="am-btn am-btn-default lipbtn" style="" data-href='http://t.dtjos.com/m3u8.php?url=http://download.xunleizuida.com/1905/戏命师之阴阳师.HD1280高清国语中字版.mp4' onclick="bofang(this)">超清HD</a>
+                                                    </li>
+                                                                                            </ul>
+
+                                        </div>
+                                                                               <a class="option collapsed" data-toggle="collapse" data-parent="#playlist"
+                                           href="#playlist2">直链播放源<span class="text-muted pull-right"><i
+                                                        class="icon iconfont icon-right"></i></span></a>
+                                        <div id="playlist2" class="playlist collapse ">
+                                            <ul class="playlistlink-1 list-15256 clearfix">
+                                                                                                    <li>
+                                                        <a href="javascript:void(0)" target="_self" id="bofang"  class="am-btn am-btn-default lipbtn" style="" data-href='http://bili.meijuzuida.com/share/4f6aea3724faf620b6c218b66ae7310d' onclick="bofang(this)">超清HD</a>
+                                                    </li>
+                                                                                            </ul>
+
+                                        </div>
+                                                                           </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9 col-sm-12 hy-main-content">
+                        <div class="hy-layout clearfix">
+                            <div class="hy-switch-tabs">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#list3" data-toggle="tab">剧情介绍</a></li>
+                                </ul>
+                            </div>
+                            <div class="tab-content">
+                                <div class="hy-play-list tab-pane fade in active" id="list3">
+                                    <div class="item">
+                                        <div class="plot">
+                                            <span>简介：</span>玄门掌门江元为救元都百姓，牺牲自己将上古妖兽飞天神猪封印于其子江五山体内。此后二十年，江五山在山村长大，却因自小长了一条猪尾巴，一直被同村人视为怪胎。某日，江五山被同村人欺辱，怒而变猪头，因此被赶出山村。怀疑自己撞邪的江五山前往元都，寻找改变自己之法。 来到元都后，原本想考入玄门的江五山虽频频遭遇失败，却意外遇到父亲当年好友钱八袋、善良泼辣的喵仙以及一票好友，找到了如家般的归属。然而，日本阴阳师的到来打破了平静，当年飞天神猪作乱因由也渐渐浮出水面。 为了好友安危，为了元都百姓，原本自卑怯懦的江五山不得不站在人前，同狼子野心的日本阴阳师一战！
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hy-layout clearfix">
+                            <div class="hy-video-head">
+                                <h3 class="margin-0">影片评论</h3>
+                            </div>
+                            <div class="ff-forum" id="ff-forum" data-id="37432" data-sid="1">
+                                <!-- UY BEGIN -->
+                            
+                            <!-- UY END --></div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 hy-main-side hidden-sm hidden-xs">
+                        <div class="hy-layout clearfix">
+                            <div class="hy-details-qrcode side clearfix">
+                                <div class="item">
+                                    <h5 class="text-muted">扫一扫用手机观看</h5>
+                                    <p>
+                                        <img src="http://qr.liantu.com/api.php?text=http://t.dtjos.com/play/Lz9tPXZvZC1kZXRhaWwtaWQtNjAwMDQuaHRtbA==.html" width="250">
+                                    </p>
+                                    <p class="text-muted">
+                                        分享到朋友圈
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="hy-video-ranking side clearfix">
+                                <div class="head">
+                                    <a class="text-muted pull-right" href="#"><i class="icon iconfont icon-right"></i></a>
+                                    <h4>您的播放历史记录</h4>
+                                </div>
+                                <div class="item">
+                                    <ul class="clearfix">
+
+                                                                                                                                    <li class="text-overflow">
+                                                    <span class="pull-right text-color">-&gt;&gt;</span>
+                                                    <a href="/play/Lz9tPXZvZC1kZXRhaWwtaWQtNTk5MzAuaHRtbA==.html" title="音为爱">音为爱</a>
+                                                </li>
+                                                                                                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span class="ff-hits" id="ff-hits-insert" data-id="37432" data-sid="vod" data-type="insert"></span>
+            <script>
+                var swiper = new Swiper('.hy-switch', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    slidesPerView: 5,
+                    spaceBetween: 0,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    breakpoints: {
+                        1200: {
+                            slidesPerView: 4,
+                            spaceBetween: 0
+                        },
+                        767: {
+                            slidesPerView: 3,
+                            spaceBetween: 0
+                        }
+                    }
+                });
+            </script>
+            <script>
+                $(function () {
+                    var biaoti = $('#xuji').text();
+                    $('title').text(biaoti);
+                    var href = $('#bofang').attr('data-href');
+                    if (href != '' || href != null) {
+                        setTimeout(function () {
+                            $('#video').attr('src',href);
+                        },30000)
+                    }
+                    $('.lipbtn:eq(0)').attr('id','ys');
+                })
+
+            </script>
+            <script>
+                function bofang(obj) {
+                    var href = $(obj).attr('data-href');
+                    var text = $(obj).text();
+                    $('.js').text('-' + text);
+                    $.each($('.lipbtn'), function () {
+                        $(this).attr('id','');
+                    });
+                    $(obj).attr('id','ys');
+                    if (href != '' || href != null) {
+                        $('#video').attr('src', '/jzad');
+                        setTimeout(function () {
+                            $('#video').attr('src', href);
+                        },30000)
+                    }
+                }
+            </script>
+            <script>
+                $(function () {
+                    $('#btn-pre').click(function () {
+                        $('#ys').parent().prev().children('a:eq(0)').click();
+                    })//上一集
+                    $('#btn-next').click(function () {
+                        $('#ys').parent().next().children('a:eq(0)').click();
+                    })//上一集
+                })
+            </script>
+            <span class="ff-record-set" data-sid="1" data-id="37432" data-id-sid="1" data-id-pid="1">
+</span>
+<div class="hy-gototop hidden-sm hidden-xs">
+    <ul class="item clearfix">
+        <li><a data-toggle="tooltip" data-placement="top" class="" href="javascript:scroll(0,0)" title="返回顶部"><i class="icon iconfont icon-uparrow"></i></a></li>
+    </ul>
+</div>
+<div class="tabbar visible-xs">
+    <a href="/" class="item ">
+        <i class="icon iconfont icon-home"></i>
+        <p class="text">首页</p>
+    </a>
+    <a href="/movielist/all/1.html" class="item ">
+        <i class="icon iconfont icon-film"></i>
+        <p class="text">电影</p>
+    </a><a href="/tvlist/all/1.html" class="item ">
+        <i class="icon iconfont icon-show"></i>
+        <p class="text">电视剧</p>
+    </a><a href="/dmlist/all/1.html" class="item ">
+        <i class="icon iconfont icon-mallanimation"></i>
+        <p class="text">动漫</p>
+    </a><a href="/zylist/all/1.html" class="item ">
+        <i class="icon iconfont icon-flag"></i>
+        <p class="text">综艺</p>
+    </a>
+</div>
+
+    <div class="container">
+    <div class="row">
+        <div class="hy-footer clearfix">
+            <p style="padding: 0 4px;text-align:center" class="container-fluid">
+                本站提供的最新电影和电视剧资源均系收集于各大视频网站,本站只提供web页面服务,并不提供影片资源存储,也不参与录制、上传<br/>
+                若本站收录的节目无意侵犯了贵司版权，请给网页底部邮箱地址来信,我们会及时处理和回复,谢谢。<br/>
+                管理员邮箱： <br/>
+            <center><div><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1264444916'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1264444916%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script></div></center>
+            <p>Copyright:<a href="#" target="_blank">蜀ICP备14022927号-1-影视天堂</a></p></p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $('#sousuo').click(function () {
+            var key = $('#ff-wd').val();
+            if (key != '' && key != null) {
+                window.location = '/search/' + key + '.html'
+            }
+        });
+
+        $('input').keyup(function () {
+            if (event.keyCode == 13) {
+                $("#sousuo").trigger("click");
+            }
+        });
+
+        $('.lazy').lazyload({
+            placeholder:"/public/static/wapian/images/loading.gif",
+            effect : "fadeIn", //渐现，show(直接显示),fadeIn(淡入),slideDown(下拉)
+            threshold : 180, //预加载，在图片距离屏幕180px时提前载入
+        });
+    })
+</script>
+<script>
+    function jilu(obj) {
+        var url = $(obj).attr('href');
+        var img = $(obj).attr('src');
+        var title = $(obj).attr('title');
+        $.ajax({
+            type: "get",
+            url: "/history",
+            dataType: "json",
+            data: {"url": url, "img": img, "title": title},
+            success: function () {
+
+            }
+        })
+    }
+</script>
+</html>
