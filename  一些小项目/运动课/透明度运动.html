@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 300px;
+        height: 300px;
+        background-color: pink;
+        
+    }
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+
+     var dom = document.getElementsByTagName('div')[0];
+     var timer = null;
+
+        //获取属性
+      function getStyle(elem,prop){
+     if(window.getComputedStyle){
+      
+         return window.getComputedStyle(elem,null)[prop];
+     }else{
+         return elem.currentStyle[prop];
+     }
+      }
+      //开始运动
+   
+
+      function startMove(dom,target){
+          clearInterval(timer);
+       var isp ,icur;
+       timer = setInterval(function(){
+           icur =parseFloat( getStyle(dom,'opacity'))*100
+          isp = (target-icur)/7;
+          isp = isp>0 ? Math.ceil(isp) : Math.floor(isp);
+          if(parseFloat(getStyle(dom,'opacity')) === target){
+            clearInterval(timer);
+          }else{
+              dom.style.opacity = (icur+ isp)/100;
+          }
+
+      },50)
+      }
+      dom.onmouseenter  =function(){
+          startMove(dom,'10');
+      }
+    </script>
+</body>
+</html>

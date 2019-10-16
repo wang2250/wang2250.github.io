@@ -1,0 +1,165 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.warpper{
+    width: 500px;
+    height: 400px;
+    background:black;
+    position: relative;
+    margin: 40px auto;
+    overflow: hidden;
+}
+.warpper:hover .tool_bar{
+    margin-bottom: 0px !important;
+}
+.warpper video{
+    width:100%;
+    height: 100%;
+    
+}
+.warpper .model{
+    width: 500px;
+    height: 360px;
+    position: absolute;
+    left: 0;
+    top:0;
+    background: black;
+    opacity: 0.5;
+    transition: 1s;
+}
+
+
+.warpper .model .iconyixianshi-{
+   font-size: 60px;
+   color: yellow;
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  cursor:pointer;
+  transform: rotateX(180deg) scale(1);
+  transition: .7s;
+  
+  
+}
+
+/*下方控制区域*/
+.warpper .tool_bar{
+    width: 500px;
+    height: 40px;
+    position: absolute;
+    left:0;
+    bottom:0;
+    background: pink;
+   
+    line-height: 40px;
+    box-sizing: border-box;
+    transition: 1s;
+}
+/*设置进度条*/
+.warpper .tool_bar .progress_bar{
+    width: 500px;
+    height: 5px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top:0;
+    margin-left: 0;
+}
+.warpper .tool_bar .progress_bar span{
+    width: 10px;
+    height: 10px;
+    background:green;
+    border-radius:  50%;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    box-shadow: 1px 1px 5px #000000;
+    transition: .3s;
+
+}
+/*下方控制区域暂停区域*/
+.warpper .tool_bar .iconzanting{
+
+ font-size: 25px;
+ color: #ffffff;
+ float: left;   
+ cursor: pointer;
+ margin-left: 10px;
+}
+.warpper .tool_bar .iconzanting1{
+    font-size: 25px;
+    color: #ffffff;
+    float: left;   
+    cursor: pointer;
+    margin-left: 10px;
+}
+/*下方控制区域时间*/
+.warpper .tool_bar div{
+    float: left;
+    width: 100px;
+    height: 100%;
+    font-size: 15px;
+    color: #ffffff;
+    margin-left: 10px; 
+}
+
+/*下方控制区域全屏*/
+.warpper .tool_bar .iconquanping{
+    float: right;
+   font-size: 25px;
+   color: #ffffff;
+   cursor: pointer;
+   margin-right: 10px; 
+}
+/*下方控制区域设置*/
+.warpper .tool_bar .iconshezhi{
+    float: right;
+    font-size: 25px;
+    color: #ffffff;
+    margin-right: 10px;
+    width: 30px;
+    height: 40px;
+    position: relative;
+    cursor: pointer;
+}
+.warpper .tool_bar .iconshezhi:hover ul{
+    display: block;
+}
+.warpper  .tool_bar .iconshezhi ul{
+    width: 60px;
+    height: 140px;
+    background:black;
+    position: absolute;
+    left: -17px;
+    top: -140px;
+    display: none;
+}
+.warpper  .tool_bar .iconshezhi ul li{
+    width: 60px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+}
+.warpper  .tool_bar .iconshezhi ul li:hover{
+    background: red;
+}
+/*下方控制区域音量*/
+.warpper  .tool_bar .iconyinliang{
+    float: right;
+    font-size: 25px;
+    color: #ffffff;
+    cursor: pointer;
+ 
+}
+.warpper  .tool_bar .iconyinliang input{
+    width: 80px;
+    display: none;
+}
+.warpper  .tool_bar .iconyinliang:hover input{
+ display: inline-block;
+}

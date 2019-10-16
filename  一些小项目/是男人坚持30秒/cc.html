@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=span, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+    body{
+        background: pink;
+    }
+  
+    #warpper{
+       
+       width: 300px;
+       height: 300px;
+       background: black;
+       position: relative;
+      margin: 0 auto;
+    }
+    #move{
+        width: 30px;
+        height: 30px;
+        background: hotpink;
+        border-radius: 50%;
+        position: absolute;
+        left: 210px;
+        top: 210px;
+        z-index: 33;
+
+    }
+    .green{
+        width: 30px;
+        height: 30px;
+        background: green;
+        border: 0 solid khaki;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0 ;
+    }
+    </style>
+</head>
+<body>
+    <span></span>
+    <div id="warpper">
+        <div id="move"></div>
+        
+    </div>
+    <script>
+
+
+        //单对象编程序
+        var game = {
+            myName: 'wyk',
+            init: function(){
+               
+                moveBlock(game.redBall);
+            
+
+            },
+            wapper: document.getElementById('warpper'),
+            redBall: document.getElementById('move'),
+            
+
+        }
+  
+  var timer = null;
+
+  //红球拖拽函数
+  function moveBlock(elem){
+    elem.onmousedown = function(e){
+        e = e ||  window.event;
+        var on_x = e.pageX;
+        var on_y = e.pageY;
+        createGreenBall();
+         setTimeout(function(){
+             alert('你赢了！')
+         },50000);
+  //点击拖拽红球便开始生成绿球
+        
+  document.onmousemove = function(e){
+      var cha_x = e.pageX - on_x;
+      var cha_y = e.pageY - on_y;
+
+ 
+  elem.style.left = elem.offsetLeft +cha_x+ 'px';
+  elem.style.top = elem.offsetTop +cha_y + 'px';
+  
+      on_x = e.pageX;
+      on_y = e.pageY;
+      if(elem.offsetLeft > 270 || elem.offsetTop > 270 || elem.offsetTop <0 || elem.offsetLeft < 0){
+        alert('游戏结束！你输了！')
+      }
+
+}
+}
+ elem.onmouseup = function(){
+    
+   document.onmousemove = null;
+}
+}
+
+//获取属性
+function getStyle(elem,prop){
+     if(window.getComputedStyle){
+      
+         return window.getComputedStyle(elem,null)[prop];
+     }else{
+         return elem.currentStyle[prop];
+     }
+      }
+//绿球运动
+function startMove(dom){
+     
+      var ispX , ispY;
+      var huitanT = 1,huitanL=1;
+      timer = setInterval(function(){
+         
+          ispX = Math.ceil(Math.random()*10);
+          ispY = Math.ceil(Math.random()*10);
+
+          
+          if(dom.offsetTop >= 270){
+              huitanT = -1;
+              
+          }
+          if(dom.offsetTop<=0){
+              huitanT  = 1;
+          }
+         if(dom.offsetLeft >= 270){
+            huitanL = -1;
+         
+         }
+        if(dom.offsetLeft <= 0){
+            huitanL  = 1;
+        }
+     if( Math.abs(game.redBall.offsetLeft-dom.offsetLeft)<28 && Math.abs(game.redBall.offsetTop-dom.offsetTop)<28){
+         alert('游戏结束！你输了！');
+     }
+          
+       
+        dom.style.left = dom.offsetLeft + ispX*huitanL + 'px';
+        dom.style.top = dom.offsetTop + ispY*huitanT + 'px';
+       
+     
+          
+
+      },50)
+      }
+    
+
+
+//生成绿球的工厂
+function createGreenBall(){
+
+
+    setInterval(function(){
+
+     var div = document.createElement('div');
+     div.className = 'green';
+     game.wapper.appendChild(div);
+     div.style.left =  Math.random()*270 + 'px';
+     startMove(div);
+
+  },2000)
+
+}
+
+
+game.init();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     *{
+         margin:0;
+         padding:0;
+         list-style: none;
+     }
+    .warpper{
+       margin:  0 auto;
+       margin-top:200px;
+      width: 400px;
+      height: 250px;
+      border: 1px solid black;
+      position: relative;
+      overflow: hidden;
+
+    }
+    .warpper .zuo{
+        position: absolute;
+        left:0;
+        top:110px;
+        width: 40px;
+        height: 40px;
+        
+        font-size: 25px;
+        color: aliceblue;
+        opacity: 0.5;
+    }
+    .warpper .you{
+        position: absolute;
+        right:0;
+        top:110px;
+        width: 40px;
+        height: 40px;
+        font-size: 25px;
+        color: aliceblue;
+        opacity: 0.5;
+        text-align: right;
+        
+      
+    }
+    .warpper .you:hover{
+        opacity: 1;
+        font-size: 30px;
+    }
+    .warpper .zuo:hover{
+        opacity: 1;
+        font-size: 30px;
+    }
+    .warpper .anniu{
+        position: absolute;
+        left:160px;
+        bottom: 0;
+        width: 100px;
+        height: 40px;
+        
+    }
+    .warpper .anniu span{
+        width: 15px;
+        height: 15px;
+        background:black;
+        margin-top: 18px;
+        margin-left: 7px;
+        float: left;
+        border-radius: 50%;
+        font-size: 0;
+
+    }
+    .warpper .anniu .yanse{
+        background:blanchedalmond;
+    }
+    .warpper ul{
+        position: absolute;
+        width: 2000px;
+        height: 250px;
+        
+    }
+    .warpper ul img{
+        width:100%;
+        height:100%;
+    }
+    .warpper ul li{
+        width: 400px;
+        height: 250px;
+        float: left;
+      
+    }
+    </style>
+</head>
+<body>
+        <div class="warpper">
+                <ul>
+                    <li><img src="../image/timg.jpeg" alt="" ></li>
+                    <li><img src="../image/timg-2.jpeg" alt="" ></li>
+                    <li><img src="../image/timg-3.jpeg" alt="" ></li>
+                    <li><img src="../image/timg-4.jpeg" alt="" ></li>
+                    <li><img src="../image/timg.jpeg" alt="" ></li>
+                </ul>
+                <div class="anniu">
+                    <span class="yanse">0</span>
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+                <div class="zuo">
+                 &lt;
+                </div>
+                <div class="you">
+                 &gt;
+                </div>
+            </div>
+
+    <script src="../jQuery.js"></script>
+    <script>
+var ind = 1;
+var timer  = null;
+var key = true ;
+function move(){
+    key = false;   
+    $('ul').animate({left:ind*-400},1200,function(){
+         key = true;
+        $('span').removeClass('yanse');
+        $('span').eq(ind).addClass('yanse');
+        
+        ind++;
+        
+        if(ind == 5){
+            
+            $('ul').css({left:'0'});
+            ind = 1;
+            $('span').eq(0).addClass('yanse');
+        }
+       
+    })
+}    
+ timer = setInterval(function(){
+     move();
+ },4000);
+  $('span').on('click',function(){
+      if(key){
+        ind = $(this).text();
+       clearInterval(timer);
+       move(); 
+       timer = setInterval(move,4000);
+      }    
+  })
+  $('.you').on('click',function(){
+       if(key){
+        clearInterval(timer);
+       move(); 
+       timer = setInterval(move,4000);
+       }
+  })
+  $('.zuo').on('click',function(){
+       if(key){
+        clearInterval(timer);
+       if(ind == 1){
+        $('ul').css({left:'-1600px'});
+           ind = 3;
+       }else{
+        ind = ind-2;
+       }
+       move(); 
+       timer = setInterval(move,4000);
+       }
+  })  
+    </script>
+   
+</body>
+</html>

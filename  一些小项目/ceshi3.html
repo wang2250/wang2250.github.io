@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+
+    .red{
+        background: red;
+
+    }
+    .green{
+        background: green;
+
+    }
+    .yellow{
+        background: yellow;
+    }
+</style>
+<body>
+
+
+<div id="dom" >
+    
+    <button @click = "onCli()"> 点击</button>
+    <h2 :class = " divClassArr[index]" v-if = "show">wjwjwjwjjwjwj</h2>
+
+
+    <ul>
+        <li v-for = "item in arr"
+         :key = 'item'
+        >{{item}}</li>
+    </ul>
+
+
+</div>
+<img v-bind:src="" alt="">
+<img :src="" alt="">
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+   //$nextTick
+   var vm  =   new Vue({
+         el:'#dom', //vm.$mount('#dom')
+         data:{
+           a:10,
+           divClassArr:['red','green','yellow'],
+
+           index:0,
+           show:true,
+           arr:['苹果','香蕉','大鸭梨'],
+
+
+
+         },
+         methods:{
+
+         onCli () {
+
+           this.show = !this.show;
+          // vm.$set(this.arr,0,'西瓜')
+          this.arr[0] = '西瓜'
+
+          }
+
+         }
+
+
+
+      })
+
+
+      var obj  ={
+ 
+       a:{
+           c:1
+       },
+       b:{
+           c:2
+       }
+
+
+      }
+
+
+      var data = {
+         obj:{
+             a:1,
+             b:2
+         }
+     }
+
+     var value = data.obj;
+
+
+      function defineReactive(data, key, value){
+          
+         
+        Object.defineProperty(data, key , {
+              
+              get(){
+                  console.log('aa');
+                  return value;
+              },
+              set(){
+
+                console.log('aa');
+                  return value;
+
+              }
+ 
+
+
+          })
+
+
+      }
+
+    defineReactive(obj,obj.a,3)
+    
+   
+
+    
+     
+      
+
+
+
+      //vue 指令
+      /*
+       v-bind 简写成 ： 绑定属性 可以在双引号里写data里的值
+         class 绑定多个需要写个数组放进去 [{},{}]
+         style [{},{}]
+
+      v-on:click = ''  简写成@
+
+      v-if 值为false 隐藏 v-else v-else-if
+
+      <template v-if = "show">
+
+     </template>
+
+     v-show （更改的display  template不能用）与v-if（直接移除元素）一样
+
+     v-for    <ul> 
+                 <li v-for = "(iten , index)in arr"></li> 
+                 可以循环obj和数字
+              </ul>
+
+     更改数组
+      不能通过索引的方式改变 否则不会渲染
+      不能通过更改长度的方式 否则不能渲染
+      数组变异的方法  pop  push shift unshift  splice sort  reverse;
+
+    更改对象
+      向对象内部添加属性或更改属性 不会渲染
+      调用Vue中的 $set 方法
+
+      
+
+
+      
+      
+      
+      */
+    </script>
+
+
+   
+</body>
+</html>

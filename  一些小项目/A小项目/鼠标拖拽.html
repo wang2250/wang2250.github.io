@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    div{
+        width: 40px;
+        height: 40px;
+        background: yellow;
+        border-radius: 50%;
+      position:absolute;
+      left:0;
+      top:0;
+      z-index: 77;
+    }
+    span{
+
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: pink;
+        position:absolute;
+      left:0;
+      top:0;
+
+    }
+    
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+    
+    var div = document.getElementsByTagName('div')[0];
+    div.onmousedown = function(e){
+
+    e  = e || window.event;//适配
+    var newL = e.pageX - div.offsetLeft;
+    var newT = e.pageY - div.offsetTop;
+    document.onmousemove = function(e){
+        e  = e || window.event;
+        div.style.left = e.pageX-newL + 'px';
+        div.style.top = e.pageY-newT + 'px';
+        var span = document.createElement('span');
+        span.style.left = e.pageX-newL+ 'px';
+        span.style.top = e.pageY-newT + 'px';
+        document.body.appendChild(span);
+    }
+    div.onmouseup = function(){
+      
+        
+        document.onmousemove = null;
+
+       
+
+    }
+
+
+
+
+    }
+    
+    
+    </script>
+</body>
+</html>

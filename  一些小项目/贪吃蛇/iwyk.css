@@ -1,0 +1,63 @@
+.content{
+
+ width: 600px;
+ height: 600px;
+ background: black;
+ position:relative;
+
+}
+
+.btn{
+
+    position: absolute;
+    left:0;
+    top:0;
+    background: rgba(130,0,0,0.3);
+    z-index: 2;
+    
+
+}
+
+.btn button{
+   width: 80px;
+   height: 30px;   
+   position: absolute;
+   left: 260px;
+   top:300px;
+   line-height: 30px;
+   text-align: center;
+   cursor: pointer;
+
+}
+
+.stopBtn button{
+    display: none;
+}
+
+.snakeWaper{
+
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left:0;
+    top:0;
+
+}
+
+.snakeHead{
+
+
+ background: pink;
+ border-radius: 50%;
+
+}
+
+.snakeBody{
+   
+    background: yellow;
+  
+}
+
+.food{
+    background: rgb(255,255,255);
+}

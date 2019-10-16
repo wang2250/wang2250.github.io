@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding:0 ;
+        }
+        #imgwarpper{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            font-size:  0;
+            perspective: 800px;
+           
+        }
+        #but{
+            width: 80px;
+            height: 30px;
+            margin-left: 500px;
+            background: pink;
+            border-radius: 10px;
+           
+        }
+      
+        </style>
+</head>
+<body>
+    <div id="imgwarpper">
+
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+        <img src="wyk.png" alt="">
+    </div>
+    
+    
+        <button  id="but">点我呀！</button>
+
+
+
+
+<script>
+
+var imgs = document.getElementsByTagName('img');
+
+var but = document.getElementById('but');
+
+var num = 0;
+
+//点击开始运动
+but.onclick = function (){
+     
+  for(let i = 0; i<imgs.length; i++){
+
+    setTimeout(function(){
+     
+     sportImg(imgs[i],"30ms","scale(0)",1);
+
+    },Math.random()*1000)
+
+  }
+    
+}
+
+
+//让照片变化的函数
+function sportImg(obj,time,transform,opacity){
+
+obj.style.transition = time;
+obj.style.transform = transform;
+obj.style.opacity = opacity;
+
+ num++;
+
+
+ obj.addEventListener('transitionend',function(){
+
+if(num == 50){
+ for(let i = 0; i<imgs.length; i++){
+
+    setTimeout(function(){
+
+     sportImg(imgs[i],"2s","rotateY(-360deg) translateZ(0px)",0);
+
+    },Math.random()*1000);
+
+ }
+
+}
+
+
+ 
+},false)
+
+
+        
+}
+
+</script>
+    
+</body>
+</html>

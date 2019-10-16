@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding:0 ;
+        list-style:none;
+    }
+      .warpper{
+
+          width: 500px;
+          height: 200px;
+          border: 1px solid #000000;
+          margin: 100px auto;
+          position: relative;
+          overflow: hidden;
+      }
+      .warpper .bnt{
+        
+        font-size: 40px;
+        color:yellow;
+        position: absolute;
+       top:70px; 
+       opacity: .3;
+       cursor:pointer;
+       
+      }
+      .warpper .bnt:hover{
+          opacity: 1;
+      }
+      .warpper .bnt.left{
+         
+       left:0;
+         
+      }
+      .warpper .bnt.right{
+          
+          right:0;
+          
+      }
+      .warpper .bntIndex{
+          width: 100px;
+          height: 20px;
+         
+          position: absolute;
+          left: 200px;
+          bottom: 0;
+      }
+      .warpper .bntIndex span{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      background:#fff;
+      border-radius: 50%;
+      margin-right: 6px;
+
+      }
+      .warpper .bntIndex .active{
+      background: yellow;
+      }
+      .warpper .solidpage{
+          position:absolute;
+          left:0;
+          top:0;
+          width: 2500px;
+          height: 200px;
+ 
+      }
+      .warpper .solidpage li{
+
+          width: 500px;
+          height: 200px;
+          float:left;
+
+      }
+      .warpper .solidpage li img{
+           width:100%;
+           height:100%;
+      }
+    </style>
+</head>
+<body>
+    <div class="warpper">
+        
+    <ul class="solidpage">
+        <li>
+            <img src="1.JPG" alt="">
+        </li>
+        <li>
+            <img src="2.jpg" alt="">
+        </li>
+        <li>
+            <img src="3.jpg" alt="">
+        </li>
+        <li>
+            <img src="4.jpg" alt="">
+        </li>
+        <li>
+            <img src="1.JPG" alt="">
+        </li>
+    </ul>
+    <div class="bnt left">&lt;</div>
+    <div class="bnt right">&gt;</div>
+    <div class="bntIndex">
+        <span class="active"></span>
+        <span ></span>
+        <span ></span>
+        <span ></span>
+    </div>
+    </div>
+    <script src="move.js"></script>
+    <script>
+    var timer = null;
+    var solidpage = document.getElementsByClassName('solidpage')[0];
+    var moveWigth = solidpage.children[0].offsetWidth;
+    var num = solidpage.children.length-1;
+    var bntLeft = document.getElementsByClassName('bnt left')[0];
+    var bntRight = document.getElementsByClassName('bnt right')[0];
+    var lock = true;//判断函数是否在运行如果在运行就不能进行其他操作
+    var index = 0;
+    var oSpanArray = document.getElementsByClassName('bntIndex')[0].getElementsByTagName('span');
+    
+      
+    bntLeft.onclick = function(){
+        autoMove('right->left');//想右移动
+    }
+    bntRight.onclick = function(){
+        autoMove('left->right');//向左移动
+    }
+    //给每个小圆点绑定函数
+    for(let i = 0;i<oSpanArray.length;i++){
+        oSpanArray[i].onclick = function(){
+                if(lock){
+                    clearTimeout(timer);
+                    lock = false;
+                    startMove(solidpage,{left:-i*moveWigth},function(){
+                    index = i;
+                    changeIndex(index);
+                    lock = true;
+                    
+                    timer = setTimeout(autoMove,2500);
+                })
+                }
+             
+        }
+        
+    }
+    //移动图片函数
+    function autoMove(direction){
+       
+           if(lock){
+            lock = false;
+            clearTimeout(timer);  
+            if(!direction || direction == 'left->right'){
+               index++;
+               startMove(solidpage,{left:solidpage.offsetLeft-moveWigth},function(){
+                 if(solidpage.offsetLeft == -num*moveWigth){
+                    solidpage.style.left = '0px';
+                    index = 0;
+                 }
+                 changeIndex(index);//运动执行完调用改变小圆点函数
+                 lock = true;
+               timer = setTimeout(autoMove,2500);
+               })
+               
+           }else if(direction == 'right->left'){
+               if(solidpage.offsetLeft == 0){
+                solidpage.style.left = -num*moveWigth+'px';
+                index = num;
+               }
+               index--;
+            startMove(solidpage,{left:solidpage.offsetLeft+moveWigth},function(){
+                lock = true;
+                timer = setTimeout(autoMove,2500);
+               changeIndex(index);
+            });
+            
+            
+           }
+           }
+    }
+    //改变小圆点
+    function changeIndex(index){
+      for(var i =0; i<oSpanArray.length;i++){
+        oSpanArray[i].className = '';
+      }
+     oSpanArray[index].className = 'active';
+
+    }
+    //首次启动计时器
+    timer = setTimeout(autoMove,2500);
+
+    </script>
+</body>
+</html>

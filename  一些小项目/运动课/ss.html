@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+          margin: 0 ;
+          padding:0 ;
+      }
+  div{
+        width: 200px;
+        height: 200px;
+        background: pink;
+        margin-bottom: 30px;
+    }
+    
+    </style>
+</head>
+<body>
+   
+
+       <div></div>
+       <div></div>
+       <div></div>
+       <div></div>
+
+
+ 
+    <script>
+    
+
+    var div = document.getElementsByTagName('div');
+    var timer = null;
+          //获取属性
+    function getStyle(elem,prop){
+     if(window.getComputedStyle){
+      
+         return window.getComputedStyle(elem,null)[prop];
+     }else{
+         return elem.currentStyle[prop];
+     }
+      }
+      //开始运动
+   
+
+      function startMove(dom,target){
+          clearInterval(dom.timer);
+      var isp ;
+      dom.timer = setInterval(function(){
+          isp = (target-parseInt(getStyle(dom,'width')))/7;
+          isp = isp>0 ? Math.ceil(isp) : Math.floor(isp);
+          if(parseInt(getStyle(dom,'width')) === target){
+            clearInterval(dom.timer);
+          }else{
+            dom.style.width = parseInt(getStyle(dom,'width')) + isp + 'px';
+          }
+
+      },20)
+      }
+     
+     for(var i = 0;i<div.length;i++){
+         
+
+          div[i].onmouseenter = function(){
+            startMove(this,400);
+
+          }
+         div[i].onmouseleave = function(){
+            startMove(this,200);
+         }
+
+         
+     }
+  
+
+    
+  
+    
+    </script>
+</body>
+</html>

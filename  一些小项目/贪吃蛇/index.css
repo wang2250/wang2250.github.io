@@ -1,0 +1,79 @@
+*{
+
+    margin:0;
+    padding:0;
+
+}
+.oddSpeed{
+     
+    position: absolute;
+    left: 380px;
+    top:70px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    
+}
+.content{
+
+    width: 640px;
+    height: 640px;
+    margin:  100px auto;
+    position: relative;
+
+}
+.btn{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background: rgba(0,0,0,0.3);
+    z-index: 2;
+}
+.stopBtn{
+    display: none;
+}
+.btn button{
+
+     width: 60px;
+     height: 30px;
+    cursor: pointer;
+    position: absolute;
+    left:300px;
+    top:300px;
+
+
+}
+#snakeWrap{
+
+    width: 600px;
+    height: 600px;
+    background: pink;
+    border:  20px solid red;
+    position: absolute;
+
+}
+#snakeWrap div{
+
+    width: 20px;
+    height: 20px;
+}
+.snakeHead{
+     
+   background: yellow;
+   border-radius: 50%;
+
+}
+.snakeBody{
+
+    background: blueviolet;
+
+}
+.food{
+
+    background: greenyellow;
+
+}

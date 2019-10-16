@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="qq"></div>
+  <script>
+
+    
+    /*
+    封闭作用于
+
+    1.命名空间
+
+    var  wyk = {}
+
+    2.立即执行函数
+    
+    
+    */
+
+    (function (global,factory) {
+
+      factory(global);
+
+    })(this,function(window){
+      //相当于在window中定义变量jquery 和 ￥、$
+      window.jquery = window.$ = $;
+      var sReg= /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/g;
+      var rReg = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
+      var match;
+      function $(select,context) {
+        //执行此函数便返回一个新的实例 封闭作用与
+        return new $.prototype.int(select,context);
+      }
+     $.prototype = {
+       
+        int: function (select,context) {
+          if(!select){
+            return this;
+          }
+          
+
+         if(typeof select === 'string'){
+            //创建标签形式
+            if(select[0]==='<'&&select[select.length-1]==='>'
+            &&select.length>=3){
+                   
+             match = [null,select,null]
+
+            }else{
+              match = sReg.exec(select);
+            }
+            //如果macth有  如果上下不能传就是id
+            if ( match && ( match[ 1 ] || !context ) ){
+              //创建标签
+              if(match[1]){
+                 //判断穿的上下文是不是 个$() 如果是取第一位 就是取dom 
+                context = context instanceof $ ?  context[0]:context;
+                
+                //$.parseHTML 把写成的字符串转换成原生的dom并放到数组中
+                $.merge( this, $.parseHTML(
+                  match[ 1 ],
+                  //把标签生成在哪里
+						      context && context.nodeType ? context.ownerDocument || context : document,
+						      true  //是否生成script
+					       ) );
+                
+                 //判断穿的上下文是不是 个{}  rReg判断标签是否合法   
+                 if ( rReg.test( match[ 1 ] ) && $.isPlainObject( context ) ) {
+                     
+                    for(match in context){
+
+                    	if ( $.isFunction( this[ match ] ) ) {
+                        //$中有次方法就执行以下
+								        this[ match ]( context[ match ] );
+
+							
+							         } else {
+                           //添加到dpm标签上
+                          this.attr( match, context[ match ] );
+                          
+							         }
+
+                    }
+
+                 }
+                
+                 return this;
+              }
+              //id
+              else{
+
+                elem = document.getElementById('match[2]');
+
+                if(elem){
+                  this[0] = elem;
+                  this.length = 1
+                }
+                return this;
+              }
+
+
+            }
+            //如果macth没有 不是创建标签和id选择 先判断穿没穿上下文 或者传的是个$()
+            else if(!context || context.$){
+                  
+              return (context||$(document)).find(select)
+
+            }
+            //穿的是个dom
+            else{
+                 return $(context).find(select)
+            }
+            
+            
+
+
+
+
+
+
+          }else if(select.nodeType){
+             this[0] = select;
+             this.length = 1;
+             return this;
+          }
+         
+        },
+
+        css: function () {
+          console.log('css');
+        }
+
+      }
+      //让int的原型指向$的原型以便于链式操作
+      $.prototype.int.prototype = $.prototype;
+    })
+    
+
+  /*
+  
+  $()里能传的参数
+
+  1
+  $(false/null/undefined)    if(!select)
+
+  2
+   $('<li/>dgdgdg') $('<li>',{html:11，dg:'ds'}) 创建完li标签后执行括号里的方法如果没有此方法变回添加此属性
+
+
+     $('<li></li>')  
+
+
+ 3
+ $('#dd')   $('.dd')  $('div')  $('ul  li')  $('li','ul') $('li:eq(0)')
+
+ 4
+ $(dom)  this   if(select.nodeType)
+
+ 5
+
+ $(function(){})  
+
+ 6
+ $($())
+
+  
+ 匹配字符串
+ if(select[0]==='<'&&select[select.length-1]==='>'&&>=3){
+
+
+
+ }else{
+             $('  <li/>dgdgdg')                 $('#dd')
+          /^( ?:  /s* (<[\w\W]+>) [^>]* |  #([\w-]+)  )$/    
+
+
+}
+  
+
+
+ merge()方法能合并数组和类数组
+  
+  */
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

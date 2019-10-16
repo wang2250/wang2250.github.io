@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+    .squer_box{
+
+      width: 400px;
+      height: 400px;
+      background-color: yellow
+
+    }
+    
+    
+    </style>
+</head>
+
+
+<body>
+     <div id="dom">
+
+        <squer ref = "zujian"></squer>
+
+         <button @click = 'handleclick'></button>
+
+     </div>
+  <script>
+    // //   /*
+    // //   template 模板
+      
+      
+    // //   */
+    
+    // // Vue.component('helloWorld',{
+
+    // //     data(){
+
+    // //       return{
+
+    // //         msg:'aa'
+    // //       }
+
+    // //     },
+     
+    // //     template:`<span>{{msg}}</span>`,
+
+    // //     methods:{
+
+
+
+    // //     }
+
+
+
+    // // })
+    
+    // new Vue({
+
+    //     el:'#dom',
+    //     data:{
+    //         aa:{
+
+    //             name:'wyk',
+    //             age:18,
+
+    //         }
+            
+
+    //     },
+    //     methods:{
+    //         handlef:function(age){
+              
+    //             this.aa.age = age;
+
+    //         }
+    //     },
+    //     components:{
+
+    //         'hello':{
+
+    //               //props:['name'],
+    //               //校验
+    //               //接受父组件的数据
+    //               props:{
+    //                   name:{
+    //                       type:String,
+    //                       //default:'hahah',//默认值
+    //                       required:true,//必须要传
+    //                       //函数校验
+    //                       validqtor(val){
+                              
+    //                         return true;//校验成功
+    //                       }
+    //                   },
+    //                   age:{
+    //                       type:Number,
+    //                   }
+    //               },
+    //               data(){
+
+    //                 return {
+
+    //                     oname:this.name ,
+    //                     oage:this.age,
+
+    //                 }
+
+    //               },
+    //                template:`<span>
+    //                     <span>{{oname}}</span>
+    //                     <span>{{oage}}</span>
+    //                     <button @click = 'handle'>点击</button>
+    //                         </span>`,
+    //                methods:{
+
+    //                  handle:function(){
+    //                      this.oage++;
+    //                      this.$emit('add',this.oage);//出发事件的名称 
+    //                  }
+
+    //                }
+
+    //         }
+
+
+
+    //     },
+
+    // })
+    
+//    var vue =  new Vue({
+//       el:'#dom',
+//       data:{
+
+//       },
+//       methods:{
+//           handleclick(){
+//               //组件引用 引用的是组建的实例
+//              console.log(this.$refs.zujian)
+//           }
+//       },
+//       components:{
+//         squer:{
+ 
+//             data(){
+                
+//                 return {
+
+//                   arr:['yellow', 'green', 'red', 'pink' ]
+
+//                 }
+//             },
+
+//             template:`
+//             <div>
+//             <button
+
+//              v-for = "color in arr"
+//              :style = {backgroundColor:color}
+//              @click = 'change(color)'
+//              :data-color = "color"
+//              >{{color}}</button>
+ 
+
+
+//              <div
+//               class = "squer_box"
+//              ref = "squerbox"
+//              ></div>
+
+//              </div>
+//              `,
+//              methods:{
+
+//                change(color){
+
+//                   //console.log(e.target.dataset.color)
+                  
+//                    const squerbox = this.$refs.squerbox;
+//                    squerbox.style.backgroundColor = color
+
+//                }
+
+
+
+//              }
+//         }
+//       }
+//     })
+
+//    console.log(vue)
+
+    
+ </script>
+
+
+
+
+</body>
+</html>

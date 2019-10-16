@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+
+            width: 200px;
+            height: 200px;
+            background: pink;
+            margin-bottom: 50px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        var dom = document.getElementsByTagName('div');
+        var timer = null;
+        var taget = {
+
+            width: 400,
+            height: 300,
+            opacity: 10,
+
+        }
+
+        //获取属性
+        function getStyle(elem, prop) {
+            if (window.getComputedStyle) {
+
+                return window.getComputedStyle(elem, null)[prop];
+            } else {
+                return elem.currentStyle[prop];
+            }
+        }
+        function startMove(obj, json, callBack) {
+
+            clearInterval(obj.timer);
+            var isp, icur;  // icur 获取属性 isp每次加的值
+            obj.timer = setInterval(function () {
+                var beStop = true;
+                for (var attr in json) { // 遍历传的要改变的值 每30 改变所有的参数的一点值
+                    //判断是否为透明度 透明度需要特殊处理
+                    if (attr == 'opacity') {
+                        icur = parseFloat(getStyle(obj, 'opacity')) * 100;
+                    } else {
+                        icur = parseInt(getStyle(obj, attr))
+                    }
+                    isp = (json[attr] - icur) / 7;
+                    isp = isp > 0 ? Math.ceil(isp) : Math.floor(isp);
+                    //判断是否为透明度 透明度需要特殊处理
+                    if (attr == 'opacity') {
+                        obj.style.opacity = (icur + isp) / 100;
+                    } else {
+                        obj.style[attr] = (icur + isp) + 'px';
+                    }
+                    //每次都判断一下是否达到目标值
+                    if (json[attr] != icur) {
+                        beStop = false;
+                    }
+
+                }
+                // 达到目标值清楚定时器 有回调函数执行回掉函数
+                if (beStop) {
+                    clearInterval(obj.timer);
+                    console.log(typeof callBack);
+                    typeof callBack == 'function' ? callBack() : '';
+
+                }
+
+            }, 30)
+
+
+        }
+
+        dom[0].onclick = function () {
+
+            startMove(dom[0], taget, function () {
+
+                startMove(dom[1], taget, function () {
+
+                    startMove(dom[2], taget)
+                });
+
+            })
+
+        }
+
+    </script>
+
+</body>
+
+</html>

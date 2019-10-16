@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+*{
+            margin: 0;
+            padding: 0;
+            color: green;
+        }
+        .clendar{
+            width: 500px;
+            padding: 1em;
+            border-radius: 5px;
+            background: #ff6a00;
+
+
+        }
+     .clender_select{
+         text-align: center;
+     }
+
+        .clendar_guding,
+        .clendar_change{
+
+
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            place-items: center;
+            margin: 1em 0;
+
+        }
+
+   .clendar_change span{
+       display: inline-block;
+       width: 30px;
+       height: 30px;
+      
+       line-height: 30px;
+       text-align: center;
+   }
+
+
+  .active{
+      background-color: whitesmoke;
+      color: #ff6a00;
+      border-radius: 50%;
+  }
+    </style>
+</head>
+<body>
+    <div class="clendar">
+        <div class="clender_select">
+            <select id="selYear"></select>
+            年
+            <select id="selMonth"></select>
+            月
+            <button id="but">今天</button>
+        </div>
+        <div class="clendar_guding">
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+            <span>七</span>
+        </div>
+        <div class="clendar_change" id="divContent">
+        
+           
+        </div>
+    </div>
+<script>
+var  selMonth = document.getElementById('selMonth');
+var  selYear = document.getElementById('selYear');
+var  divContent = document.getElementById('divContent');
+var but = document.getElementById('but');
+/*
+辅助生成年月
+*/
+function appendToSelect( num, elemDom){
+    var option = document.createElement('option'); 
+    option.innerHTML = num ;
+    option.value = num;
+    elemDom.appendChild(option);
+}
+
+
+/*
+*设置需选择区域
+* */
+function setSelectArea() {
+
+   // 生成月份
+    for(var i = 1;i<=12;i++){
+     
+      appendToSelect(i,selMonth);
+       
+    }
+  //生成年份
+   var year = new Date().getFullYear();//获取当前呢年
+   var month = new Date().getMonth()+1;//获取当前月
+   for(var j = parseInt(year)-50; j<parseInt(year)+50; j++){
+        appendToSelect(j,selYear);
+   }
+  //设置默认选中
+   selYear.value = year;
+   selMonth.value = month; 
+   //设置事件
+   selYear.onchange = function(){
+    setCalendarContent();
+   }
+  selMonth.onchange  = function(){
+    setCalendarContent();
+  } 
+  //设置点击
+  but.onclick = function(){
+    selYear.value = year;
+   selMonth.value = month; 
+   setCalendarContent();
+  }
+
+}
+
+
+
+/*
+获取一个月有多少天
+*/
+function getInto(){
+     
+     var year = parseInt(selYear.value);
+     var month = parseInt(selMonth.value);
+     var obj = {
+       year,
+       month
+     }
+     var a = new Date(year,month,0);
+     obj.days = a.getDate();
+    //本月一号是星期几
+    
+    var d= new Date(year,month-1,1);
+     if(d.getDay() === 0){
+         obj.week = 7;
+     }else{
+        obj.week = d.getDay();
+     }
+    
+   
+   return obj ; 
+   
+}
+　
+/*
+设置内容区域
+*/
+function setCalendarContent(){
+   
+   
+ var obj = getInto();
+
+ // 根据天数生产生成内容
+   
+  divContent.innerHTML = "";
+  for(var i = 1; i< obj.week;i++){
+    var span = document.createElement('span');
+    divContent.appendChild(span);
+  }
+  var y = new Date() .getFullYear();
+  var m = new Date() .getMonth()+1;
+  var d = new Date() .getDate();
+  for(var i = 1; i<obj.days;i++){
+      var span = document.createElement('span');
+      span.innerHTML = i;
+      
+      divContent.appendChild(span);
+  
+      if(obj.year === y && obj.month === m && i === d){
+          span.className = 'active';
+      }
+  }
+
+}
+setSelectArea();
+setCalendarContent();
+
+
+    </script>
+</body>
+</html>

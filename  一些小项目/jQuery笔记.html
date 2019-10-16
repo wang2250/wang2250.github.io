@@ -1,0 +1,148 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+           margin: 0;
+           padding:0;
+           list-style: none;
+        }
+    
+    </style>
+</head>
+<body>
+ <div>
+   <span></span>
+ </div>
+ <span class='qw'>p</span>
+ <!--引入-->
+  <script src="jQuery.js"></script>
+  <script>
+
+
+
+
+  
+    //添加两个元素div下的span 
+    //console.log($('span','div'));
+    //$('ul>li:first/last') ul下的第一个li
+    //$('ul>li:eq(2)') ul下的第一3个li
+    //$('ul>li:odd/even') 奇数个/偶数个
+    //$('span').filter('.qw') 把span标签带有qw类名的筛选出来
+   //$('span').filter(function(index){
+
+    //  return turn; 
+    
+  // }) 
+  //$('span').not()与filter相反
+  //$('span').has('p') 有内容p的
+  //$('span').find('p') 把内容p返回
+  //添加一个特性 $().prop依赖于js中对象的获取dom.style.  getComputed
+  //$('span').attr('aa','aa') 类似setA
+  //$('span').attr('aa')取值   getA
+
+  //$('span').prev()上一个兄弟节点
+  //$('span').next()下一个兄弟节点
+  //$('span').index()兄弟节点中的索引值
+  //添加class类名
+  //$().addClass('') 也可以穿一个函数  addCLass(function(index){
+  //   return '';   
+  //})
+  //$().removeClass('')删除
+  //$().toggleCLass('')如果右给他填上没有加上 一般在点击时间
+  //$('li:eq(4)').insertBefore($('li:eq(0)'))把4插入到0前面 返回第4个
+  //Before() 相反
+  //appendTo()
+  //append()
+  //remove()   删除元素及其自元素
+  //detach() 只删除dom元素 不会删除dom元素绑定的事件
+  //.on('click','span',function(){   点击看看是不是由span触发的
+
+  //})  对应addEventList()
+  //one() 只触发一次
+  //off('click'，‘span’，‘’)解绑   js绑定事件 attachEvent("on事件类型",命名函数)
+// 解绑 detachEvent("on事件类型",函数名字);
+
+  //$(window).scroll(function(){
+
+    //console.log($(window).scrollTop())
+
+ // }) 当window触发滚轮事件 打印scrolltop值   一般用与固定定位 
+    //Width() 获取宽度
+  //innerWidth() contant+padding
+  //outerWidth  contant+padding+border  参数为ture带有margin
+  //with()   content
+  // 创建标签    $('<div></div>'),$('<div>'),$('<div/>')
+    //offset().left/top  相对于父级
+    //position().left/top 相对于文档
+
+    //e.pageX()相对于文档
+    //e.client() 向对于窗口
+    //e.srceen()  相对于电脑屏幕
+    //e.which() 按下的是那个键
+    //stopPropagation()取消冒泡
+    //preventDefault() 取消默认事件
+    //return false  即取消了冒泡也取消了默认事件
+
+    //parent() 直接父元素 加参数 parent(‘p’) 是p返回不是就反毁空
+    //offsetParent() 有定位的父级  如果一值找不到返回html 
+    //parents() 多个父级 可以传参找
+    //closest()  传参查找离他最近的元素
+
+    //val() value() 值
+    //blur()   失去焦点
+    //focus()
+   //each(function(index,ele){
+
+  // }) 便利数组
+  //end() 回退 回退到上次一选中的元素 链式调用  
+  //$('span').clone() 克隆一个span标签  参数为ture时间也能克隆 
+  //$('li').warp('p') 外边包上个p标签
+  //warpInner()
+  //unwarp() 解除外部包裹
+ //$('li').eq(0).add($('li').eq(4)) 同时选出第一个和第四个li
+ //$('li').slice(0,2) 截取0~2个 不包含尾
+ //$('ul').empty() 把ul里的东西都清空 ==  $('ul').html(‘’)
+ //$('ul').html(123) 把ul里的东西都变成123
+ //串联表单数据$('form').serialize() 
+ // animate动画 
+ //$().animate({left:300},1000 ‘’  fuction(){}) 左边的值为300 运动时长为1s 速率 linear匀速  回调函数
+ //stop() 阻止当前运动继续后续运动   加参数ture阻止所有运动  传两个ture停止当前运动立刻到该步运动的终点  一个false一个ture立刻
+ //停到目标点后在进行后续运动
+ 
+ //delay() 动画延迟
+ //slideUp() 滑动着none掉
+ //slideDown none的时候滑动的展示出来
+ //slideTOggle() 显示的时候隐藏 隐藏的时候显示
+ // toggleClass() 当前有此类名就显示出来 没有加上 
+ //fadeIn(3000) 淡入时间为3s
+ //trigger(‘click’) 可以出发默认事见或者自定义事件 
+
+
+
+ // 工具方法  定义在$方法上
+ //$.type(arr) == Object.prototype.toString.call(arr) 
+ //$.trim() 消除字符串两边的空格 并不能消除中间的空格
+ //$.proxy(函数，指向)() 改变this指向
+ //$.onConflict() 防止冲突  var wquery = $.onConflict()   $变成wquery
+ //拓展工具方法
+ //$.extend({
+
+ //   aa:function(){
+  //      consolr.log(222)
+ //}
+
+ //})
+ //$.aa()
+ //$.extend(obj1,obj2) 把obj2的内容合并到obj1  不是深度克隆 对象只是拿的索引值
+ //   $.extend(true，obj1,obj2) 深克隆
+ 
+//$.merge(obj,arr)   合并数组和类数组到obj中
+  </script>
+
+</body>
+</html>

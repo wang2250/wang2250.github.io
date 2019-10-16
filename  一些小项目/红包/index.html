@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+            background: linear-gradient(pink, yellow);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        var oBody = document.getElementsByTagName('body')[0];
+        var timer = null;
+        // 生产小球
+        function shengchan() {
+
+
+            setInterval(function () {
+
+                var oImg = document.createElement('img');
+
+                oImg.src = 'hb.jpg'
+                oImg.style.width = '50px';
+                oImg.style.height = '50px';
+                oImg.style.position = 'absolute';
+                oImg.style.left = `${getRandom(600, 0)}px`;
+
+                oBody.appendChild(oImg);
+                sport(oImg);
+
+            }, 600)
+
+
+        }
+
+        shengchan();
+        //小球运动
+        function sport(oImg) {
+
+            timer = setInterval(function () {
+                oImg.onclick = function () {
+                    timer = null;
+                    oImg.style.display = 'none'
+                }
+                oImg.style.top = oImg.offsetTop + 5 + 'px';
+
+
+            }, 50)
+
+
+
+        }
+
+        //获取随机数
+        function getRandom(max, min) {
+
+            var dec = max - min;
+
+            return Math.floor(Math.random() * dec + min);
+        }
+    </script>
+</body>
+
+</html>

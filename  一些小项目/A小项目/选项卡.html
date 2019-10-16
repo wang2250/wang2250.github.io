@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+    
+    .warpper{
+        width: 300px;
+        height: 300px;
+        border: 1px solid pink;
+    }
+    .warpper span{
+        display:inline-block;
+         width: 30px;
+         height: 30px;
+         background:  green;
+         margin-left: 20px;
+         text-align: center;
+         line-height: 30px;
+    }
+    .warpper .content{
+        width: 300px;
+        height: 260px;
+        background: pink;
+        color: black;
+        font-size: 50px;
+        text-align: center;
+        line-height: 260px;
+        display: none;
+    }
+    .warpper .active{
+       background: red;
+   }
+   .warpper .c-active{
+       display: block;
+   }
+    </style>
+</head>
+<body>
+
+    <div class="warpper">
+        <span class="s1 active">1</span>
+        <span class="s2">2</span>
+        <span class="s3">3</span>
+        <div class="content c-active">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+    </div>
+
+
+    <script>
+       
+      $('span').click(function(){
+        $('.active').removeClass('active');
+        $(this).addClass('active');
+        var a = $(this).index();
+        $('.content').css('display','none');
+       $('.content').eq(a).css('display','block');
+      
+      })  
+
+    </script>
+</body>
+</html>

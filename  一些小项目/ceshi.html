@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+   
+    
+    </style>
+
+</head>
+<body>
+    <input type="text" value="请输入" onfocus="if(this.value == '请输入'){this.value =''} " onblur="if(this.value == ''){this.value ='请输入'}">
+    <input type="password">
+<script>
+    var ss = '';
+    var inp = document.getElementsByTagName('input')[0];
+    document.onkeydown = function (e){
+       ss = ss + String.fromCharCode(e.keyCode);//转化为数字
+    }
+
+   
+
+</script>
+
+
+
+</body>
+</html>

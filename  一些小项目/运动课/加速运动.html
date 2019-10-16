@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      *{
+
+      margin: 0 ;
+      padding:0 ;
+      list-style: none;
+
+
+      }
+     ul{
+          
+          width: 808px;
+          height: 60px;
+   
+          margin: 100px auto;
+          position: relative;
+     }
+  ul li.nav{
+
+   width: 200px;
+   height: 60px;
+   float:left;
+   text-align: center;
+   line-height: 60px;
+   border: 1px solid #000;
+
+
+  }
+
+  ul li.yi{
+    width: 200px;
+   height: 60px;
+   background: pink;
+   opacity:0.5;
+   position: absolute;
+   left: 0;
+   top:0;
+  }  
+
+  
+
+    </style>
+</head>
+<body>
+  
+
+     <ul>
+       <li class="nav">shshsh</li>
+       <li class="nav">sjsjsjs</li>
+       <li class="nav">ewdadad</li>
+       <li class="nav">dadada</li>
+       <li class="yi"></li>
+     </ul>
+
+    <script>
+    
+  var yid = document.getElementsByClassName('yi')[0];
+  var oLi = document.getElementsByClassName('nav');
+
+   var timer = null;
+   for(let i = 0; i<oLi.length;i++){
+
+    oLi[i].onmouseenter = function(){
+      console.log('dd');
+      startMove(yid,this.offsetLeft);
+
+    }
+
+   }
+  
+
+ function startMove(obj,target){
+   clearInterval(obj.timer);
+   var isp = 20,a;
+   
+
+   obj.timer = setInterval(function(){
+
+     a = (target-obj.offsetLeft)/8;
+    isp = isp + a;
+    isp = isp*0.8;
+
+    obj.style.left =  obj.offsetLeft + isp + 'px';
+ 
+     
+
+   },30)
+
+
+ }
+
+    </script>
+</body>
+</html>

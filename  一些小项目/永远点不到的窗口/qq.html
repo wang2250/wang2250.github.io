@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+       div{
+           width: 100px;
+           height: 100px;
+           background: pink;
+           position: absolute;
+           left: 0;
+           top: 0;
+       } 
+
+    </style>
+</head>
+<body>
+    <div ></div>
+    <script>
+     
+    var obj = {
+        dom:document.getElementsByTagName('div')[0],
+
+    }
+   //生成随机坐标
+   　function random(){
+
+       var  position  = {
+           
+       }
+       position.cX = Math.random()*800;
+       position.cY = Math.random()*800;
+       
+       return position;
+       
+   }
+
+
+    //移动窗口
+    function moveBox(){
+       //生成随机坐标
+       var  creat = random();
+       
+       obj.dom.style.left = creat.cX  + 'px';
+       obj.dom.style.top = creat.cY + 'px';
+
+    }
+    obj.dom.onmouseenter = function(){
+        moveBox();
+    }
+
+
+    </script>
+</body>
+</html>

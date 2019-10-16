@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background: pink;
+        }
+      .box{
+          width: 250px;
+          height: 35px;
+          background: rgb(189, 188, 187);
+          text-indent: 5em;
+          line-height: 35px;
+      }
+      .box .kuai{
+         
+          position: absolute;
+          width: 40px;
+          height: 35px;
+          background: white;
+          text-indent: 4em;
+          line-height: 35px;
+      }
+   
+      .box .kuai .ll{
+        position: absolute;
+         
+          height: 35px;
+          background:rgb(167, 226, 167);
+      }
+     </style>
+</head>
+<body>
+   <div class="box">
+      
+       <div class="kuai"></div>
+        拖动验证
+       
+   </div>
+   <script src="../jQuery.js"></script>
+    <script>
+   var k =  document.getElementsByClassName('kuai')[0];
+   var b =  document.getElementsByClassName('box')[0];
+   var timer = null;
+    k.onmousedown = function(e){
+      
+     var chX = e.pageX - this.offsetLeft;
+     var oDiv =  document.createElement('div');
+     k.appendChild(oDiv);
+   
+     document.onmousemove = function(e){
+        oDiv.className = 'll';
+        k.style.left= e.pageX - chX + 'px' ;
+         oDiv.style.width = k.offsetLeft + 'px';
+         oDiv.style.left = -k.offsetLeft + 'px';
+        
+        if(k.offsetLeft>=208){
+            k.style.left= 210 + 'px' ;
+            oDiv.style.width = k.offsetLeft + 'px';
+            oDiv.style.left = -k.offsetLeft + 'px';
+            k.onmousedown = null;
+            document.onmousemove = null;
+            document.onmouseup = null;
+            setTimeout(function(){
+                oDiv.innerText = '验证完成';
+            },400)
+           
+        }
+     }
+    
+     document.onmouseup = function(){
+        document.onmousemove = null;
+       timer =  setInterval(function(){
+
+         k.style.left = k.offsetLeft - 5 + 'px';
+         oDiv.style.width = k.offsetLeft + 'px';
+         oDiv.style.left = -k.offsetLeft + 'px';
+         if(k.offsetLeft <= 0){
+             clearInterval(timer);
+             k.style.left = 0;
+         oDiv.style.width = 0;
+         oDiv.style.left = 0;
+         }
+        },10)
+     }
+
+    }
+    
+    </script>
+</body>
+</html>

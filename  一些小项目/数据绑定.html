@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+     <div id="dom">
+
+      <input id = "inp" type="text" :value='value'v-on:input = "handle">
+      <span>{{desc}}</span>
+
+     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        
+
+
+  
+    var vm = new Vue({
+
+        el:'#dom',
+        data:{
+            value:'hh',
+
+        },
+        methods:{
+            handle:function(e){
+
+                 this.value = e.target.value;
+  
+            }
+        },
+        //监听器
+        watch:{
+             //value值改变的时候干啥事
+            value:function(){
+
+
+            }
+
+        },
+        //计算属性
+        computed:{
+          //可以直接当做值使用  若果里边的属性有改变会再次执行此函数
+         desc:function(){
+             
+            return this.value;
+          }
+
+        }
+
+
+    })
+    //双向绑定语法糖
+    //v-model = '要绑定的数据'
+    //<textarea></textarea> 也是个文本输入框和input绑定一样
+    /*
+    <input type="checkbox"> 绑定也一样 选中值为true
+
+     多个复选框绑定还是得加value方便区分 此时要绑定的数据为【】
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+
+
+    <input type="radio">
+    //给select绑定
+    <select>
+        <option></option>
+    </select>
+
+    
+    */
+    </script>
+</body>
+</html>

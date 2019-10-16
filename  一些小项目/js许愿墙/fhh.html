@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    html{
+        height: 100%;
+        background: linear-gradient(pink,yellow);
+    }
+    .text{
+        position: absolute;
+        bottom: 30px;
+        width: 250px;
+        left: 0;
+        right: 0;
+        margin:  auto;
+        height: 38px;
+        border-radius: 4px;
+        text-indent: 2em;
+        font-size: 16px;
+    }
+    .item{
+        width: 170px;
+        height: 170px;
+        padding:20px;
+        box-sizing: border-box;
+        background: green;
+        border-radius: 4px;
+        border-bottom-right-radius: 50px 10px;
+        /*盒子阴影*/
+        box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        left: 30px;
+        top: 30px;
+    }
+    .item .colse{
+      color: antiquewhite;
+      position: absolute;
+      right: 3px;
+      top: 0;
+      cursor: pointer;    
+    }
+    </style>
+</head>
+<body>
+    <input type="text" class="text"  value="请许个愿吧" onfocus="if(this.value == '请许个愿吧'){this.value  = ''}" onblur ="if(this.value == ''){this.value = '请许个愿吧'}">
+    <div class="content">
+
+    </div>
+
+
+<script>
+var z = 10;
+var dom = document.getElementsByTagName('div')[0];
+var inp = document.getElementsByTagName('input')[0];
+function moveBlock(elem){
+    elem.onmousedown = function(){
+  document.onmousemove = function(e){
+
+var event = e ||  window.even;
+
+
+elem.style.left = event.pageX - 50 + 'px';
+elem.style.top = event.pageY - 50 + 'px';
+
+
+
+}
+}
+elem.onmouseup = function(){
+    console.log('hhhh');
+    document.onmousemove = null;
+}
+   }
+
+function createWish(word){
+
+
+ var div = document.createElement('div');
+ 
+
+ div.className = 'item';
+ div.innerHTML = word;
+ var span = document.createElement('span');
+ span.className = 'colse';
+ span.innerHTML = 'X';
+ div.appendChild(span);
+ dom.appendChild(div);
+
+ var maxWidth = window.innerWidth - div.offsetWidth;
+ var maxHeight = window.innerHeight  - div.offsetHeight-80;
+
+ div.style.left = `${getRandom(maxWidth,0)}px`;
+ div.style.top = `${getRandom(maxHeight,0)}px`;
+ div.style.background = `rgb(${getRandom(250,150)},${getRandom(250,150)},${getRandom(250,150)} )` ;
+ moveBlock(div);
+ span.addEventListener('click',function(){
+     dom.removeChild(div);
+ },false)
+
+ div.onclick = function(){
+
+   div.style.zIndex = z;
+   z++;
+
+ }
+
+
+
+}
+
+createWish('找个女朋友');
+
+function getRandom(max,min){
+
+    var dec = max- min;
+
+    return Math.floor(Math.random()*dec+min);
+}
+
+inp.onkeydown = function(e){
+
+    // if(e.keyCode !== 13){
+    //     return;
+    // }
+    // if(inp.value){
+    //     createWish(inp.value);
+    //     inp.value = '';
+
+    // }
+
+    if(e.keyCode === 13 && inp.value){
+        createWish(inp.value);
+         inp.value = '';
+     }
+
+
+}
+
+</script>
+
+</body>
+</html>

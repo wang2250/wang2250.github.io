@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    <style>
+     
+     .squer_box{
+
+          width: 400px;
+          height: 400px;
+          background-color: yellow;
+
+     }
+    
+    
+    </style>
+</head>
+<body>
+    
+  <div id= 'dom'>
+
+  <squer></squer>
+
+  </div>
+  
+<script>
+  
+   new Vue({
+      el:'#dom',
+      data:{
+
+
+      },
+      components:{
+         
+         squer:{
+     
+            data(){
+                return{
+                  arr:['yellow', 'green', 'pink', 'red']
+                }
+            },
+             template:`
+
+             <div>
+                <button 
+
+                v-for = "color in arr"
+                
+                :style = [{backgroundColor:color}]
+
+                @click = 'change(color)'
+                >{{color}}</button>
+
+                <div class = 'squer_box' ref = 'squerbox'></div>
+                
+                
+                
+            </div>
+             
+             
+             
+             `,
+             methods:{
+
+                change(color){
+                  
+                    this.$refs.squerbox.style.backgroundColor = color;
+                      
+
+                }
+
+             }
+            
+         }
+
+      }
+
+   })
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+<script>
+
+function loadScript(url,callback){
+    var script = document.createElement('script');
+    script.type = "text/javascript";
+   
+    if(script.readyState){
+        script.onreadyStatechange = function (){
+            if(script.readyState == 'complete' || script.readyState == 'laded'){
+               callback();
+            }
+        }
+    }else{
+        script.onload = function (){
+            callback();
+        }
+    }
+   script.src = url;
+   document.head.appendChild (script);
+
+}
+loadScript("aa.js", function(){
+
+    ss();
+})
+</script>
+</body>
+</html>

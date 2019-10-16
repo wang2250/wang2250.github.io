@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0 ;
+        padding:0 ;
+    }
+    #imgwarpper{
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        font-size:  0;
+        perspective: 800px;
+       
+    }
+    #but{
+        width: 80px;
+        height: 30px;
+        margin-left: 500px;
+        background: pink;
+        border-radius: 10px;
+    }
+  
+    </style>
+</head>
+<body>
+    
+<div id="imgwarpper">
+
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+    <img src="wyk.png" alt="">
+</div>
+
+
+    <button  id="but">点我呀！</button>
+
+
+
+
+<script>
+    var imgs = document.getElementsByTagName('img');
+
+   var but = document.getElementById('but');
+   var endNum = 0;
+    
+    but.onclick = function(){
+        for(let i = 0;i<imgs.length;i++){
+          
+            setTimeout(function(){
+            
+           
+            motion(imgs[i],'30ms',function(){
+                this.style.transform = "scale(0)";
+                
+            },function(){
+                motion(this,'1s',function(){
+                this.style.transform = "scale(1)"
+                this.style.opacity= "0";
+             },function(){
+                
+                endNum++;
+
+              if(endNum == imgs.length){
+                 rotate();
+              }
+
+
+            })
+            })
+
+
+            },Math.random()*1000)
+          
+          
+        }
+    }
+
+
+ function rotate(){
+
+   
+   for(let i = 0;i<imgs.length;i++){
+       
+       imgs[i].style.transition = '';
+       imgs[i].style.transform = "rotateY(0deg) translateZ(-50px)";
+
+       setTimeout(function(){
+
+       motion(imgs[i],"2s",function(){
+        this.style.transform = 'rotateY(-360deg) translateZ(0)';
+       this.style.opacity = "1";
+       })
+
+
+       },Math.random()*1000)
+
+   }
+
+
+ }
+
+ function motion(obj,time,attrFn,callBack){
+ obj.style.transition = time;
+ attrFn.call(obj);
+ function endFn(){
+      if(callBack) {
+      callBack.call(obj);
+      }
+    
+ }
+ obj.addEventListener('transitionend',endFn,false)
+ }
+
+</script>
+</body>
+</html>

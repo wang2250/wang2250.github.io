@@ -1,0 +1,31 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+.warpper{
+    width: 80%;
+    margin: 0 auto;
+    border:1px solid black;
+    text-align: center;
+    min-width: 930px;
+}
+.warpper ul{
+    display:inline-block;
+    
+}
+.warpper ul .box{
+    float: left;
+}
+.warpper ul .box .item{
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 0 5px 10px; 
+}
+.warpper ul .box .item img{
+    width: 100%;
+    
+
+}
+
