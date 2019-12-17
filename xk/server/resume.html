@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="星科工作室招新简历">
+    <title>星科工作室招新</title>
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/resume.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/submit.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="header">
+        <div id="headerContaniner">
+            <a href="http://feidian.hzau.edu.cn/?tdsourcetag=s_pcqq_aiomsg#/recruit">
+                <img src="images/logo.png">
+                <span>星科工作室招新</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="formcontent">
+        <form method="post" class="comsumeform" id="feidianconsume" target="nm_iframe">
+            <fieldset>
+                <legend class="person">基本信息</legend>
+                <div class="item">
+                    <label for="name" class="description">
+                        姓名
+                    </label>
+                    <input type="text" name="name" id="name" class="forms" tip="请输入姓名">
+                </div>
+                <div class="item">
+                    <label for="sex" class="description">
+                        性别
+                    </label>
+                    <select name="sex" id="sex" class="forms" tip="请选择性别">
+                        <option selected disabled>点击选择... </option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="birth" class="description">
+                        出生年月
+                    </label>
+                    <input type="date" name="birth" id="birth" class="forms" tip="请选择出生年月">
+                </div>
+                <div class="item">
+                    <label for="nativeplace" class="description">
+                        籍贯
+                    </label>
+                    <input type="text" name="nativeplace" id="nativeplace" class="forms" placeholder="如：湖南衡阳"
+                        tip="请输入籍贯">
+                </div>
+                <div class="item">
+                    <label for="nation" class="description">
+                        民族
+                    </label>
+                    <select name="nation" id="nation" class="forms" tip="请选择民族">
+                        <option>汉族</option>
+                        <option>蒙古族</option>
+                        <option>满族</option>
+                        <option>朝鲜族</option>
+                        <option>赫哲族</option>
+                        <option>达斡尔族</option>
+                        <option>鄂温克族</option>
+                        <option>鄂伦春族</option>
+                        <option>回族</option>
+                        <option>东乡族</option>
+                        <option>土族</option>
+                        <option>撒拉族</option>
+                        <option>保安族</option>
+                        <option>裕固族</option>
+                        <option>维吾尔族</option>
+                        <option>哈萨克族</option>
+                        <option>柯尔克孜族</option>
+                        <option>锡伯族</option>
+                        <option>塔吉克族</option>
+                        <option>乌孜别克族</option>
+                        <option>俄罗斯族</option>
+                        <option>塔塔尔族</option>
+                        <option>藏族</option>
+                        <option>门巴族</option>
+                        <option>珞巴族</option>
+                        <option>羌族</option>
+                        <option>彝族</option>
+                        <option>白族</option>
+                        <option>哈尼族</option>
+                        <option>傣族</option>
+                        <option>僳僳族</option>
+                        <option>佤族</option>
+                        <option>拉祜族</option>
+                        <option>纳西族</option>
+                        <option>景颇族</option>
+                        <option>布朗族</option>
+                        <option>阿昌族</option>
+                        <option>普米族</option>
+                        <option>怒族</option>
+                        <option>德昂族</option>
+                        <option>独龙族</option>
+                        <option>基诺族</option>
+                        <option>苗族</option>
+                        <option>布依族</option>
+                        <option>侗族</option>
+                        <option>水族</option>
+                        <option>仡佬族</option>
+                        <option>壮族</option>
+                        <option>瑶族</option>
+                        <option>仫佬族</option>
+                        <option>毛南族</option>
+                        <option>京族</option>
+                        <option>土家族</option>
+                        <option>黎族</option>
+                        <option>畲族</option>
+                        <option>高山族</option>
+                        <option>其它</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <label for="facefile" class="description"> 一寸照片
+                    </label>
+                    <input type="file" name="facefile" id="facefile" class="forms">
+                </div>
+
+            </fieldset>
+            <fieldset>
+                <legend class="college">学院信息</legend>
+                <div class="item">
+                    <label for="stuid" class="description">
+                        学号
+                    </label>
+                    <input type="text" name="stuid" id="stuid" class="forms" tip="请输入学号">
+                </div>
+                <div class="item">
+                    <label for="stuclass" class="description">
+                        专业班级
+                    </label>
+                    <input type="text" name="stuclass" id="stuclass" class="forms" placeholder="如：计科1901" tip="请输入班级">
+                </div>
+                <div class="item">
+                    <label for="dorm" class="description">
+                        寝室号
+                    </label>
+                    <input type="text" name="dorm" id="dorm" class="forms" placeholder="如：荟五xxx" tip="请输入寝室号">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="tel">联系方式</legend>
+                <div class="item">
+                    <label for="tel" class="description">
+                        手机号
+                    </label>
+                    <input type="text" name="tel" id="tel" class="forms" tip="请输入手机号">
+                </div>
+                <div class="item">
+                    <label for="QQ" class="description">
+                        QQ
+                    </label>
+                    <input type="text" name="QQ" id="QQ" class="forms" tip="请输入QQ">
+                </div>
+                <div class="item">
+                    <label for="email" class="description">
+                        电子邮箱
+                    </label>
+                    <input type="email" name="email" id="email" class="forms" tip="请输入电子邮箱">
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend class="perdescription">个人简介</legend>
+                <div class="item">
+                    <label for="direction" class="description">
+                        发展方向
+                    </label>
+                    <div class="forms" id="divcheckbox">
+                        <span><input type="checkbox" id="web" name="direction" value="Web开发">大前端组</span>
+                        <span><input type="checkbox" id="java" name="direction" value="Java开发">Java开发</span>
+                        <span><input type="checkbox" id="ios" name="direction" value="IOS开发">IOS&UI</span>
+                        <span> <input type="checkbox" id="xinan" name="direction" value="信息安全">信息安全</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <label for="perexperience" class="description">
+                        个人经历
+                    </label>
+                    <textarea name="perexperience" id="perexperience" class="forms"></textarea>
+                </div>
+                <div class="item">
+                    <label for="knowandwhy" class="description">
+                        对你所选择方向的了解以及为什么想选择此方向
+                    </label>
+                    <textarea name="knowandwhy" id="knowandwhy" class="forms"></textarea>
+                </div>
+                <div class="item">
+                    <label for="clgobject" class="description">
+                        大学四年的整体规划
+                    </label>
+                    <textarea name="clgobject" id="clgobject" class="forms"></textarea>
+                </div>
+            </fieldset>
+            <p class="btnconsume">
+                <input type="submit" name="submit" id="submit" value="提交简历" onclick="submitconsume()">
+                <input type="reset" name="reset" id="reset" value="重新填写">
+            </p>
+        </form>
+        <iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+
+        <div id="loading">
+          <!-- 我是滚动条 -->
+        </div>
+
+    </div>
+
+   
+
+    <div class="footer">
+        <div class="footercontainer">
+            <p>Copyright © 2019 星科工作室 All rights reserved.</p>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/messages_zh.js"></script>
+    <script src="js/jquery.validate.extend.js"></script>
+    <script>
+      
+console.log('%c 星科工作室欢迎你！ ', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );color:#fff;-webkit-background-clip: text;font-size:5em;');
+        $("#feidianconsume").validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2
+                },
+                sex: {
+                    required: true,
+                },
+                birth: {
+                    required: true,
+                },
+                nativeplace: {
+                    required: true,
+                },
+                facefile: {
+                    required: true,
+                    filecheck: true
+                },
+                stuid: {
+                    required: true,
+                    digits: true
+                },
+
+                stuclass: {
+                    required: true,
+
+                },
+                dorm: {
+                    required: true,
+                },
+                tel: {
+                    required: true,
+                    rangelength: [11, 11],
+                    telcheck: true
+                },
+                QQ: {
+                    required: true,
+                    digits: true
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                direction: {
+                    required: true,
+                },
+                perexperience: {
+                    required: true,
+                },
+                knowandwhy: {
+                    required: true,
+                },
+                clgobject: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: "姓名不能为空",
+                    minlength: "姓名的最小长度为2"
+                },
+                sex: {
+                    required: "性别不能为空",
+                },
+                birth: {
+                    required: "出生年月不能为空",
+                },
+                nativeplace: {
+                    required: "籍贯不能为空",
+                },
+                facefile: {
+                    required: "头像文件不能为空",
+                    filecheck: "请使用jpg，jpeg，png格式且大小小于5M的照片"
+                },
+                stuid: {
+                    required: "学号不能为空",
+                    digits: "请正确填写学号"
+                },
+                stuclass: {
+                    required: "专业班级不能为空",
+                },
+                dorm: {
+                    required: "寝室号不能为空",
+                },
+                tel: {
+                    required: "手机号不能为空",
+                    rangelength: "输入有误，手机号长度为11位",
+                    telcheck: "请正确填写手机号码"
+                },
+                QQ: {
+                    required: "QQ不能为空",
+                    digits: "请正确填写QQ"
+                },
+                email: {
+                    required: "电子邮箱不能为空",
+                    email: "输入的邮箱格式有误"
+                },
+                direction: {
+                    required: "此项不能为空",
+                },
+                perexperience: {
+                    required: "此项不能为空",
+                },
+                knowandwhy: {
+                    required: "此项不能为空",
+                },
+                clgobject: {
+                    required: "此项不能为空",
+                }
+            },
+            errorPlacement: function (error, element) {
+                //指定错误信息位置
+                if (element.is(':checkbox')) {
+                    var eid = element.attr('name');
+                    error.appendTo(element.parent().parent().parent());
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
+    </script>
+
+    <script type="text/javascript" src="js/canvas-nest.js"></script>
+
+</body>
+
+</html>
