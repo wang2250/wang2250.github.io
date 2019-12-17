@@ -1,0 +1,90 @@
+main #page_4 {
+    background: #03a9f4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main #page_4 #contact_content {
+    width: 100%;
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 70px;
+    line-height: 200%;
+}
+
+main #page_4 #contact_content #button{
+    margin-top: 50px;
+    display: inline-block;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 10px;
+    background: #edbb2e;
+    font-size: 26px;
+    text-align: center;
+    /* transition: .5s; */
+
+}
+
+/* main #page_4 #contact_content #button:hover {
+    background: red;
+    transform: scale(1.3)
+} */
+
+main #page_4 #contact_content a {
+    color: white;
+    text-decoration: none;
+}
+
+main #page_4 #contact_content #word {
+    margin-top: 20px;
+    display: block;
+    text-decoration: underline;
+}
+
+#wordfile {
+  cursor: pointer;
+}
+main #page_4 #contact_content #wordclick a{
+  text-decoration: underline;
+}
+.word-item a {
+  color: rgb(237, 187, 46);
+  /* text-decoration: none; */
+}
+
+.btn-word {
+  display: flex;
+  margin-left: 25%;
+  color: #fff;
+  background-color: rgb(237, 187, 46);
+  padding: 5px 20px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 450px) {
+    main #page_4 #contact_content {
+        flex-direction: column;
+    }
+
+    main #page_4 #contact_content #contact_info {
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    main #page_4 #contact_content #join {
+        margin-top: 30px;
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 780px) {
+  #wordclick #wordfile{
+    margin-left: 40px;
+  }
+  #submit{
+    margin: 0 auto;
+  }
+}
